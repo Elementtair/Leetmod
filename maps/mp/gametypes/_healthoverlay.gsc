@@ -54,9 +54,7 @@ onPlayerSpawned()
 	
 	while(1) {
 		self waittill("spawned_player");
-		//ProjectileWeapons
-		//self thread playerHealthRegen();
-        self thread jaggernaut();
+		self thread playerHealthRegen();
 	}
 }
 
@@ -74,17 +72,6 @@ onPlayerDisconnect()
 {
 	self waittill("disconnect");
 	self notify("end_healthregen");
-}
-
-jaggernaut()
-{
-    //maxhealth = self.health;
-    //player = self;
-    if(self maps\mp\gametypes\_class::cac_hasSpecialty( "specialty_armorvest" ) )
-    {
-     //   player.health = 2 * maxhealth;
-        self setMoveSpeedScale( 0.9 );
-    }
 }
 
 playerHealthRegen()
@@ -111,14 +98,6 @@ playerHealthRegen()
 	lastSoundTime_Recover = 0;
 	hurtTime = 0;
 	newHealth = 0;
-	
-	//ProjectileWeapons ArmorVest
-	if(self maps\mp\gametypes\_class::cac_hasSpecialty( "specialty_armorvest" ) )
-	{
-		player.health = 2 * maxhealth;
-		self setMoveSpeedScale( 0.7 );
-	}
-	//
 	
 	while(1) {
 		wait (0.05);

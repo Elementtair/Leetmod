@@ -161,10 +161,7 @@ init()
 	
 	level.c4explodethisframe = false;
 	
-	//PeZBot precache bot weapons
-  // Already called in _pezbot::init()
-	//openwarfare\_pezbot::PreCache();
-  //PeZBot/
+	
 }
 
 onPlayerConnect()
@@ -344,29 +341,14 @@ mayDropWeapon( weapon )
 
 dropWeaponForDeath( attacker )
 {
-	if( level.scr_pezbots_enable && isDefined(self.bIsBot) && self.bIsBot == true && isDefined(self.actualWeapon) )
-	    weapon = self.actualWeapon;
-	else
-	    weapon = self.lastDroppableWeapon;
 	
-	//PeZBOT
-  if( isDefined(self.bIsBot) && self.bIsBot == true )
-  {
-    //bots drop normal weapon based on what they were holding when they died
-    self giveweapon(weapon);
-    stockMax = WeaponMaxAmmo( weapon );
-    self SetWeaponAmmoClip(weapon, 30);
-        self SetWeaponAmmoStock(weapon, stockMax);
-    self setspawnweapon(weapon);
-    self switchtoweapon(weapon);
-    item = self dropItem( weapon );
-    self.droppedDeathWeapon = true;
-  } //PeZBOT/
-	else {
-		if ( isDefined( self.droppedDeathWeapon ) )
-			return;
+	weapon = self.lastDroppableWeapon;
+	
+	
+	if ( isDefined( self.droppedDeathWeapon ) )
+		return;
 			
-		if ( !isDefined( weapon ) ) {
+	if ( !isDefined( weapon ) ) {
 			/#
 			if ( getdvar("scr_dropdebug") == "1" )
 				println( "didn't drop weapon: not defined" );
@@ -421,7 +403,7 @@ dropWeaponForDeath( attacker )
 		self.droppedDeathWeapon = true;
 		
 		item ItemWeaponSetAmmo( clipAmmo, stockAmmo );
-	}
+	
 	
 	item itemRemoveAmmoFromAltModes();
 	
@@ -655,10 +637,7 @@ watchCurrentFiring( curWeapon )
 		return;
 	}
 	
-	// PeZBot: this code is commented
-	if( !level.scr_pezbots_enable )
-		assertEx( shotsFired >= 0, shotsFired + " startAmmo: " + startAmmo + " clipAmmo: " + self getWeaponAmmoclip( curWeapon ) + " w/ " + curWeapon  );
-	// PeZBot /
+	
 	if ( shotsFired <= 0 )
 		return;
 		
@@ -834,10 +813,7 @@ beginGrenadeTracking()
 		grenade thread maps\mp\gametypes\_shellshock::grenade_earthQuake();
 		grenade.originalOwner = self;
 	}  //PeZBOT
-	else if( level.scr_pezbots_enable && weaponName == "smoke_grenade_mp" ) {
-	  grenade openwarfare\_pezbot::AddToSmokeList();
-	}
-	//PeZBOT/
+	
 	
 	self.throwingGrenade = false;
 }

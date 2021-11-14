@@ -172,19 +172,6 @@ echo    Adding sounds...
 7za a -r -tzip leetmod.iwd sound\*.mp3 > NUL
 echo    Adding weapons...
 7za a -r -tzip leetmod.iwd weapons\mp\*_mp > NUL
-echo    Adding pezbot weapons...
-7za a -r -tzip leetmod.iwd weapons\mp\ak47_mp_pezbot_climb_up > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\ak47_mp_pezbot_crouch_walk > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\ak47_mp_pezbot_stand_run > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\ak47_mp_pezbot_stand_walk > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\concussion_mp_pezbot_stand_grenade > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\flash_mp_pezbot_stand_grenade > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\frag_mp_pezbot_stand_grenade > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\brick_blaster_mp > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\rpg_mp_pezbot_stand_grenade > NUL
-7za a -r -tzip leetmod.iwd weapons\mp\smoke_mp_pezbot_stand_grenade > NUL
-echo    Adding pezbot waypoints code...
-7za a -r -tzip leetmod.iwd waypoints\*.gsc > NUL
 
 REM #COMMENT FOR REMOVING RULESETS - START
 echo    Adding Leetmod standard rulesets...
@@ -210,8 +197,7 @@ goto BUILD_OPENWARFARE_IWD
 
 :WEAPONS_FIXES_NOGUNSWAY
 xcopy weapons\fixes+nogunsway weapons\mp /SYI > NUL
-REM Copy pezbot weapons too
-xcopy weapons\PeZBotweapons weapons\mp /SYI > NUL
+
 goto BUILD_OPENWARFARE_IWD
 
 :WEAPONS_FIXES_NOGUNSWAY_SNIPER
@@ -269,14 +255,11 @@ xcopy soundaliases ..\..\raw\soundaliases /SYI > NUL
 xcopy ui_mp ..\..\raw\ui_mp /SYI > NUL
 xcopy vision ..\..\raw\vision /SYI > NUL
 xcopy weapons\fixes+nogunsway ..\..\raw\weapons\mp /SYI > NUL
-xcopy weapons\PeZBotweapons_128wa_fix ..\..\raw\weapons\mp /SYI > NUL
 xcopy xanim ..\..\raw\xanim /SYI > NUL
 xcopy xmodel ..\..\raw\xmodel /SYI > NUL
 xcopy xmodelparts ..\..\raw\xmodelparts /SYI > NUL
 xcopy xmodelsurfs ..\..\raw\xmodelsurfs /SYI > NUL
 
-echo    Copying PeZBot waypoints...
-xcopy waypoints ..\..\raw\waypoints /SYI > NUL
 
 echo    Copying Leetmod source code...
 xcopy openwarfare ..\..\raw\openwarfare /SYI > NUL

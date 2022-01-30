@@ -5,14 +5,14 @@ A Call of Duty 4 mod by nostalgicamigo based on [OpenWarfare](http://openwarfare
 
 This is a fork of [nostalgicamigo's original repository](http://sourceforge.net/projects/leetmod/).
 
-TSupport for Pezbots was dropped in favor of Cod4X Bots
+Support for Pezbots was dropped in favor of Cod4X Bots
 
 Description
 -----------
 
 Leetmod brings many new features and fixes upon CoD4 v1.7. Everything that was wrong, unbalanced or missing was improved.
 
-this version works with COD4X server, supporting COD4X Bots
+This version works with COD4X server, supporting COD4X Bots
 
 It was born from the necessity of balancing the game and players and at the same time be an autonomous and dynamic tool that controls the rotation, gameplay and more.
 
